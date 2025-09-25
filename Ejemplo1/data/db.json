@@ -1,0 +1,156 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "firstName": "Martin",
+      "lastName": "Fowler",
+      "specialty": "Software Architecture, Refactoring",
+      "country": "UK"
+    },
+    {
+      "id": 2,
+      "firstName": "Robert C.",
+      "lastName": "Martin",
+      "specialty": "Software Design, Clean Code",
+      "country": "USA"
+    },
+    {
+      "id": 3,
+      "firstName": "Eric",
+      "lastName": "Evans",
+      "specialty": "Domain-Driven Design (DDD)",
+      "country": "USA"
+    },
+    {
+      "id": 4,
+      "firstName": "Kent",
+      "lastName": "Beck",
+      "specialty": "Extreme Programming (XP), TDD",
+      "country": "USA"
+    },
+    {
+      "id": 5,
+      "firstName": "Addy",
+      "lastName": "Osmani",
+      "specialty": "JavaScript, Web Performance",
+      "country": "UK"
+    },
+    {
+      "id": 6,
+      "firstName": "Steve",
+      "lastName": "McConnell",
+      "specialty": "Software Construction",
+      "country": "USA"
+    },
+    {
+      "id": 7,
+      "firstName": "Donald E.",
+      "lastName": "Knuth",
+      "specialty": "Algorithms, Computer Science",
+      "country": "USA"
+    },
+    {
+      "id": 8,
+      "firstName": "Kathy",
+      "lastName": "Sierra",
+      "specialty": "Programming Education, Java",
+      "country": "USA"
+    },
+    {
+      "id": 9,
+      "firstName": "Bjarne",
+      "lastName": "Stroustrup",
+      "specialty": "C++ Language Design",
+      "country": "Denmark"
+    },
+    {
+      "id": 10,
+      "firstName": "Guido",
+      "lastName": "van Rossum",
+      "specialty": "Python Language Design",
+      "country": "Netherlands"
+    }
+  ],
+  "books": [
+    {
+      "id": 101,
+      "title": "Refactoring: Improving the Design of Existing Code",
+      "authorId": 1,
+      "year": 2018,
+      "topic": "Software Design",
+      "language": "Java/JavaScript"
+    },
+    {
+      "id": 102,
+      "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+      "authorId": 2,
+      "year": 2008,
+      "topic": "Code Quality",
+      "language": "General/Java"
+    },
+    {
+      "id": 103,
+      "title": "Domain-Driven Design: Tackling Complexity in the Heart of Software",
+      "authorId": 3,
+      "year": 2003,
+      "topic": "Software Architecture",
+      "language": "General"
+    },
+    {
+      "id": 104,
+      "title": "Extreme Programming Explained: Embrace Change",
+      "authorId": 4,
+      "year": 1999,
+      "topic": "Methodology",
+      "language": "General"
+    },
+    {
+      "id": 105,
+      "title": "Learning JavaScript Design Patterns",
+      "authorId": 5,
+      "year": 2012,
+      "topic": "JavaScript",
+      "language": "JavaScript"
+    },
+    {
+      "id": 106,
+      "title": "Code Complete: A Practical Handbook of Software Construction",
+      "authorId": 6,
+      "year": 2004,
+      "topic": "Software Engineering",
+      "language": "General"
+    },
+    {
+      "id": 107,
+      "title": "The Art of Computer Programming, Vol. 1: Fundamental Algorithms",
+      "authorId": 7,
+      "year": 1997,
+      "topic": "Algorithms",
+      "language": "MIX/General"
+    },
+    {
+      "id": 108,
+      "title": "Head First Design Patterns",
+      "authorId": 8,
+      "year": 2004,
+      "topic": "Design Patterns",
+      "language": "Java"
+    },
+    {
+      "id": 109,
+      "title": "The C++ Programming Language",
+      "authorId": 9,
+      "year": 2013,
+      "topic": "Programming Language",
+      "language": "C++"
+    },
+    {
+      "id": 110,
+      "title": "Fluent Python: Clear, Concise, and Effective Programming",
+      "authorId": 10,
+      "year": 2015,
+      "topic": "Programming Language",
+      "language": "Python"
+    }
+  ]
+}
