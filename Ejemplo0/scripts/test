@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+#- Ejecuta una batería de pruebas con curl contra JSONPlaceholder
+
+set -uo pipefail
+
+RESULTS_DIR="./results"
+BASE_URL="https://jsonplaceholder.typicode.com"
+
+mkdir -p "$RESULTS_DIR"
+
+log() {
+  printf "%s %s\n" "$(date '+%Y-%m-%d %H:%M:%S')" "$*" | tee -a "$RESULTS_DIR/test.log"
+}
+
+run_curl() {
+  # run_curl <label> <output-file> <curl-args...>
+  label="$1"; shift
+  outfile="$1"; shift
+  log "=== START: $label ==="
+  echo "Running: curl $*" | tee -a "$RESULTS_DIR/test.log"
+  # Ejecuta curl guardando cuerpo y guardando headers por separado
+  headers_file="${outfile}.headers"
+  body_file="${outfile}.body"
+  metrics_file="${outfile}.metrics"
+
+  # Ejecutar curl silencioso, guardar cuerpo en body_file, headers en headers_file
+  # y write-out en metrics_file para capturar http_code y tiempo
+  curl -s -D "$headers_file" -o "$body_file" -w "HTTP %{http_code}  time_total=%{time_total}s  size_download=%{size_download} bytes\n" "$@" > "$metrics_file" 2>>"$RESULTS_DIR/test.log"
+  rc=$?
+  echo "exit_code=$rc" >> "$metrics_file"
+  log "Saved: $body_file, $headers_file, $metrics_file (exit_code=$rc)"
+  log "=== END: $label ==="
+  echo
+  return $rc
+}
+
+# 1) GET - lista y elemento
+run_curl "GET - posts list" "$RESULTS_DIR/get_posts" "$BASE_URL/posts"
+run_curl "GET - post 1" "$RESULTS_DIR/get_post_1" "$BASE_URL/posts/1"
+
+# 2) GET with query params
+run_curl "GET - comments for postId=1" "$RESULTS_DIR/get_comments_p1" "$BASE_URL/comments?postId=1"
+
+# 3) GET with custom headers
+run_curl "GET - with custom headers" "$RESULTS_DIR/get_with_headers" -H "X-Test: prueba" -H "Accept: application/json" "$BASE_URL/posts/1"
+
+# 4) HEAD request (only headers)
+log "=== HEAD request (only headers) ==="
+curl -s -I "$BASE_URL/posts/1" > "$RESULTS_DIR/head_post_1.headers"
+echo "Saved headers to $RESULTS_DIR/head_post_1.headers"
+echo
+
+# 5) POST - enviar JSON (crear recurso - simulado)
+POST_JSON='{\"title\":\"Prueba desde script\",\"body\":\"Contenido de prueba\",\"userId\":999}'
+run_curl "POST JSON - create post" "$RESULTS_DIR/post_create" -X POST -H "Content-Type: application/json" -d "$POST_JSON" "$BASE_URL/posts"
+
+# 6) POST - form data (multipart/form-data)
+# JSONPlaceholder ignora archivos, pero se usa para mostrar --form
+run_curl "POST form - multipart" "$RESULTS_DIR/post_form" -X POST -F "title=FormTitle" -F "file=@/dev/null;filename=dummy.txt" "$BASE_URL/posts"
+
+# 7) PUT - reemplazar recurso (simulado)
+PUT_JSON='{\"id\":1,\"title\":\"Reemplazado desde script\",\"body\":\"Cuerpo nuevo\",\"userId\":1}'
+run_curl "PUT - replace post 1" "$RESULTS_DIR/put_post_1" -X PUT -H "Content-Type: application/json" -d "$PUT_JSON" "$BASE_URL/posts/1"
+
+# 8) PATCH - modificar parcialmente (simulado)
+PATCH_JSON='{\"title\":\"Patch desde script\"}'
+run_curl "PATCH - patch post 1" "$RESULTS_DIR/patch_post_1" -X PATCH -H "Content-Type: application/json" -d "$PATCH_JSON" "$BASE_URL/posts/1"
+
+# 9) DELETE - borrar recurso (simulado)
+run_curl "DELETE - delete post 1" "$RESULTS_DIR/delete_post_1" -X DELETE "$BASE_URL/posts/1"
+
+# 10) Error handling: resource 0 (404) with and without --fail
+run_curl "GET - non-existent (expect 404) - no --fail" "$RESULTS_DIR/get_nonexistent_no_fail" "$BASE_URL/posts/0"
+log "GET non-existent with --fail (return non-zero on >=400):"
+if run_curl "GET - non-existent (expect 404) --fail" "$RESULTS_DIR/get_nonexistent_fail" --fail "$BASE_URL/posts/0"; then
+  log "Unexpected success for --fail on nonexistent"
+else
+  log "--fail correctly returned non-zero exit code for 404"
+fi
+
+# 11) Timeouts and retries
+log "Timeout test (connect-timeout 1s, max-time 2s)"
+run_curl "Timeout test" "$RESULTS_DIR/timeout_test" --connect-timeout 1 --max-time 2 "$BASE_URL/posts"
+
+log "Retry test (3 retries, delay 1s) - simulado (no hay fallo real pero se muestra uso)"
+run_curl "Retry test" "$RESULTS_DIR/retry_test" --retry 3 --retry-delay 1 "$BASE_URL/posts/1"
+
+# 12) Cookies - cookie-jar and send cookie
+COOKIE_JAR="$RESULTS_DIR/cookies.txt"
+log "Saving cookies to jar: $COOKIE_JAR"
+curl -s --cookie-jar "$COOKIE_JAR" "$BASE_URL" > /dev/null
+log "Now sending cookie jar back on request"
+run_curl "GET - using cookie jar" "$RESULTS_DIR/get_with_cookies" --cookie "$COOKIE_JAR" "$BASE_URL/posts/1"
+
+# 13) compressed response
+run_curl "GET - compressed" "$RESULTS_DIR/get_compressed" --compressed "$BASE_URL/posts"
+
+# 14) Forzar IPv4 e HTTP/2 (si está soportado)
+run_curl "GET - force IPv4" "$RESULTS_DIR/get_ipv4" -4 "$BASE_URL/posts/1"
+run_curl "GET - try http2" "$RESULTS_DIR/get_http2" --http2 -I "$BASE_URL/posts/1"
+
+# 15) Parallel requests (usa --parallel si está disponible)
+if curl --version 2>/dev/null | grep -q -- '--parallel'; then
+  log "Running parallel downloads (3 requests)"
+  # Note: when using --parallel + -o, curl expects different -o per URL; here we route to files
+  curl --parallel --parallel-max 3 \
+    -s -o "$RESULTS_DIR/parallel_post_1.json" "$BASE_URL/posts/1" \
+    -s -o "$RESULTS_DIR/parallel_post_2.json" "$BASE_URL/posts/2" \
+    -s -o "$RESULTS_DIR/parallel_post_3.json" "$BASE_URL/posts/3"
+  log "Parallel downloads saved to $RESULTS_DIR/parallel_post_*.json"
+else
+  log "curl --parallel no disponible en esta versión. Emulando con background jobs."
+  curl -s -o "$RESULTS_DIR/parallel_post_1.json" "$BASE_URL/posts/1" &
+  curl -s -o "$RESULTS_DIR/parallel_post_2.json" "$BASE_URL/posts/2" &
+  curl -s -o "$RESULTS_DIR/parallel_post_3.json" "$BASE_URL/posts/3" &
+  wait
+  log "Background parallel downloads finished."
+fi
+
+# 16) Summary of results
+log "==== SUMMARY: contents of $RESULTS_DIR ===="
+ls -la "$RESULTS_DIR" | tee -a "$RESULTS_DIR/test.log"
+
+log "Script finished. Revisa la carpeta $RESULTS_DIR para los resultados (cuerpos, headers, metrics y log)."
