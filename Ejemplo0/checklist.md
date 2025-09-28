@@ -1,5 +1,9 @@
 # CHECKLIST - semana 01 -
 
+[Meter estas dos lineas]: #
+mkdir -p  {config,data,docs,examples,scripts,test,src}
+touch {.gitignore,.env.example,.env,README.md}
+
 ## Requisitos previos
 
 - [x] Git.
