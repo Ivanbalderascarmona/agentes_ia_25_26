@@ -1,0 +1,48 @@
+# Lista de comandos CURL
+
+- `-a, --append` : Añade al archivo en lugar de sobrescribir (FTP/SFTP).
+- `--abstract-unix-socket <path>` : Conectar a un socket UNIX abstracto.
+- `--alt-svc <archivo>` : Guardar o leer información alt-svc.
+- `--anyauth` : Usa cualquier método de autenticación soportado.
+- `-b, --cookie <data|archivo>` : Enviar cookies desde un string o archivo.
+- `-c, --cookie-jar <archivo>` : Guardar cookies en un archivo.
+- `-d, --data <data>` : Enviar datos en un POST.
+- `--data-raw <data>` : Igual que `--data` pero sin interpretación de `@`.
+- `--data-urlencode <data>` : Enviar datos codificados en URL.
+- `-F, --form <campo=contenido>` : Enviar formulario (multipart/form-data).
+- `-G, --get` : Fuerza a usar GET (convierte datos en query string).
+- `-H, --header <header>` : Añadir cabeceras HTTP personalizadas.
+- `-I, --head` : Obtener solo los headers de respuesta.
+- `-k, --insecure` : Ignorar certificados SSL inválidos.
+- `-L, --location` : Seguir redirecciones.
+- `-o, --output <archivo>` : Guardar salida en un archivo.
+- `-O, --remote-name` : Guardar con el mismo nombre remoto.
+- `-u, --user <usuario:contraseña>` : Autenticación de usuario.
+- `-v, --verbose` : Modo detallado de depuración.
+- `-s, --silent` : Modo silencioso.
+- `-x, --proxy [host:puerto]` : Usar un proxy.
+- `-X, --request <método>` : Forzar método HTTP (GET, POST, PUT, DELETE...).
+- `-A, --user-agent <cadena>` : Cambiar el User-Agent.
+- `--compressed` : Solicitar respuesta comprimida.
+- `--limit-rate <velocidad>` : Limitar la velocidad de transferencia.
+- `--max-time <segundos>` : Tiempo máximo permitido para la operación.
+- `--retry <n>` : Reintenta la operación n veces en caso de error.
+- `--http2` : Fuerza HTTP/2.
+- `--http3` : Fuerza HTTP/3 (si está soportado).
+- `--cacert <archivo>` : Usar un certificado CA específico.
+- `--cert <cert[:clave]>` : Usar un certificado cliente.
+- `--key <archivo>` : Usar clave privada para certificado cliente.
+- `--fail` : No mostrar salida en errores HTTP, solo código de salida.
+- `--parallel` : Ejecutar múltiples descargas en paralelo.
+- `--proto <protocolos>` : Limitar protocolos permitidos.
+- `--proxy-user <usuario:contraseña>` : Autenticación en proxy.
+- `--cookie-jar <archivo>` : Guardar cookies en un archivo.
+- `--cookie <archivo>` : Leer cookies desde un archivo.
+- `--http1.0` : Forzar HTTP/1.0.
+- `--ipv4` : Forzar uso de IPv4.
+- `--ipv6` : Forzar uso de IPv6.
+- `--upload-file <archivo>` : Subir un archivo (FTP/SFTP/HTTP PUT).
+- `--tlsv1.2` : Forzar TLS 1.2.
+- `--tlsv1.3` : Forzar TLS 1.3.
+- `--ftp-create-dirs` : Crear directorios al subir archivos por FTP/SFTP.
+- `--interface <nombre>` : Usar una interfaz de red específica.
