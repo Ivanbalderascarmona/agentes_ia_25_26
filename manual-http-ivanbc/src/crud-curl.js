@@ -12,14 +12,14 @@ const BASE_URL=`${process.env.API_BASE_URL}:${process.env.PORT}`;
 const createStudent= (studentData={}) => {
     const commandPost = `curl -X POST ${BASE_URL}/students -H "${ContentType}" -d '${JSON.stringify(studentData)}'`;
 
-    console.log(`Create new student command: ${commandPost}`);
+    console.log(`The command to create the student is : ${commandPost}\n`);
 };
 
 /**
  * This function shows the command to see all the students
  */
 const readAllStudents= () => {
-    console.log(`See students command: curl -X GET ${BASE_URL}/students`);
+    console.log(`The command to see all the students is : curl -X GET ${BASE_URL}/students\n`);
 };
 
 /**
@@ -27,7 +27,7 @@ const readAllStudents= () => {
  * @param {number} id - The id of the student that you want to se (default = {})
  */
 const readStudentsById=(id=1)=>{
-    console.log(`The command to see the student with id = ${id} is : curl GET ${BASE_URL}/students/${id}`);
+    console.log(`The command to see the student with id = ${id} is : curl -X GET ${BASE_URL}/students/${id}\n`);
 };
 
 /**
@@ -36,7 +36,7 @@ const readStudentsById=(id=1)=>{
  * @param {object} studentData - The new data of the student (default = {}) 
  */
 const updatedStudent=(id=1, studentData={})=>{
-    console.log(`The command to updated a student with id = ${id} and student = ${studentData} is : curl -X PUT ${BASE_URL}/students/${id} -H "${ContentType}" -d '${JSON.stringify(studentData)}'`);
+    console.log(`The command to updated a student with id = ${id} and new data as parameter is : curl -X PUT ${BASE_URL}/students/${id} -H "${ContentType}" -d '${JSON.stringify(studentData)}'\n`);
 };
 
 /**
@@ -45,7 +45,7 @@ const updatedStudent=(id=1, studentData={})=>{
  * @param {object} partialData - The partial data to be modified (default = {})
  */
 const patchStudent=(id=1,partialData={})=>{
-    console.log(`The command to updated the student partially with id = ${id} and the data to remplace = ${partialData} is: curl -X PATCH ${BASE_URL}/students/${id} -H "${ContentType}" -d '${JSON.stringify(partialData)}'`);
+    console.log(`The command to updated the student with id = ${id} and the data partially as parameter is: curl -X PATCH ${BASE_URL}/students/${id} -H "${ContentType}" -d '${JSON.stringify(partialData)}'\n`);
 };
 
 /**
@@ -53,5 +53,30 @@ const patchStudent=(id=1,partialData={})=>{
  * @param {number} id - The id of the student that you want to delete (default = 1)
  */
 const deleteStudent=(id)=>{
-    console.log(`The command to delete the student with id = ${id} is : curl -X DELETE ${BASE_URL}/students/${id}`);
+    console.log(`The command to delete the student with id = ${id} is : curl -X DELETE ${BASE_URL}/students/${id}\n`);
 };
+
+
+const newStudent={"id":8, "name":"Ivan Balderas Carmona", "email": "ivanbalderas@gmail.com", "enrollmentDate": "2024-03-08", "active": false, "level": "advanced"};
+console.log("Comando 1: -------------------------------------------------");
+
+createStudent(newStudent);
+
+console.log("Comando 2: -------------------------------------------------");
+readAllStudents();
+
+console.log("Comando 3: -------------------------------------------------");
+readStudentsById(5);
+
+const newStudentData={"id":2, "name": "Juan Lopez Lopez", "email": "juan.lopez@gmail.com", "enrollmentDate":"2024-01-16", "active":false, "level": "intermediate"};
+
+console.log("Comando 4: -------------------------------------------------");
+updatedStudent(4,newStudentData);
+
+const partiallyStudentData={"active": true};
+
+console.log("Comando 5: -------------------------------------------------");
+patchStudent(7,partiallyStudentData);
+
+console.log("Comando 6: -------------------------------------------------");
+deleteStudent(3);
