@@ -23,9 +23,9 @@
 ## Parte 4: Thunder Client
 
     -[] Configuración
-    -[] Peticiones
-    -[] Capturas  de pantalla
-    -[] Documentación
+    -[x] Peticiones
+    -[x] Capturas  de pantalla
+    -[x] Documentación
 
 ## Parte 5: REST Client
 
