@@ -191,20 +191,23 @@
 
 2. Operación POST
    1. Esta operación realiza la petición POST del CRUD para añadir un alumno nuevo a students.
-      - ![Captura de la petición POST con thunder client](./images/thunderimage1.png)
-      - ![Captura del resto de resultados de la petición POST con thunder client](./images/thunderimag2.png)
+       ![Captura de la petición POST con thunder client](./images/thunderimage1.png)
+       ![Captura del resto de resultados de la petición POST con thunder client](./images/thunderimage2.png)
    2. Esta operación realiza la petición GET del CRUD donde se leen todos los estudiantes que existen.
-      - ![Captura de la petición GET de todos los estudiantes con Thunder Client](./images/thunderimage3.png)
-      - ![Captura del resto de la petición GET de todos los estudiantes con Thunder Client](./images/thunderimage4.png)
+       ![Captura de la petición GET de todos los estudiantes con Thunder Client](./images/thunderimage3.png)
+       ![Captura del resto de la petición GET de todos los estudiantes con Thunder Client](./images/thunderimage4.png)
    3. Esta operación realiza la petición GET del CRUD donde se lee un solo estudiante
-      - ![Captura de la petición GET de un solo estudiante con Thunder Client](./images/thunderimage5.png)
-      - ![Captura del resto de la petición GET de un solo estudiante con Thunder Client](./images/thunderimage6.png)
+       ![Captura de la petición GET de un solo estudiante con Thunder Client](./images/thunderimage5.png)
+       ![Captura del resto de la petición GET de un solo estudiante con Thunder Client](./images/thunderimage6.png)
    4. Esta operación realiza la petición PUT que modifica por completo la informacion de un estudiante.
-      - ![Captura de la petición PUT donde se modifican totalmente los datos del estudiante con Thunder Client](./images/thunderimage7.png)
-      - ![Captura del resto de la petición PUT](./images/thunderimage8.png)
+       ![Captura de la petición PUT donde se modifican totalmente los datos del estudiante con Thunder Client](./images/thunderimage7.png)
+       ![Captura del resto de la petición PUT](./images/thunderimage8.png)
    5. Esta operación realiza la petición PATCH que modifica parcialmente la información de un estudiante.
-      - ![Captura de la petición PATCH donde se modifica parcialmente la información de un estudiante con Thundr Client](./images/thunderimage9.png)
-      - ![Captura del resto de la petición PATCH](./images/thunderimage10.png)
+       ![Captura de la petición PATCH donde se modifica parcialmente la información de un estudiante con Thundr Client](./images/thunderimage9.png)
+       ![Captura del resto de la petición PATCH](./images/thunderimage10.png)
    6. Esta operación realiza la petición DELETE que elimina a un alumno.
-      - ![Captura de la petición DELETE donde se elimina un alumno con Thunder Client](./images/thunderimage11.png)
-      - ![Captura del resto de la petición DELETE](./images/thunderimage12.png)
+       ![Captura de la petición DELETE donde se elimina un alumno con Thunder Client](./images/thunderimage11.png)
+       ![Captura del resto de la petición DELETE](./images/thunderimage12.png)
+
+## Script de validación
+ ![Captura del script validate.sh](./images/validateimage.png)

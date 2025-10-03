@@ -35,11 +35,12 @@
 
 ## Parte 6: Script de validación
 
-    -[] Archivo scripts/validate.sh
-    -[] Configuración
+    -[x] Archivo scripts/validate.sh
+    -[x] Configuración
 
 ## Parte 7: Comprobar que el checklist del progreso esta completo
 
-    -[] Archivo cheklist.md
+    -[x] Archivo cheklist.md
+    -[] Comprobar que todo esta hecho correctamente.
 
 

@@ -7,7 +7,7 @@ const BASE_URL=`${process.env.API_BASE_URL}:${process.env.PORT}`;
 
 /**
  * This function shows the command to create a new student with the data passed as parameter
- * @param {object} studentData - The data of the new student (default = {})
+ * @param {Object} studentData - The data of the new student (default = {})
  */
 const createStudent= (studentData={}) => {
     const commandPost = `curl -i -X POST ${BASE_URL}/students -H "${ContentType}" -d '${JSON.stringify(studentData)}'`;
@@ -33,7 +33,7 @@ const readStudentsById=(id="1")=>{
 /**
  * This function shows the command to update a student with the id and the new data passed as parameter
  * @param {string} id - The id of the student that you want to updated (default = "1")
- * @param {object} studentData - The new data of the student (default = {}) 
+ * @param {Object} studentData - The new data of the student (default = {}) 
  */
 const updatedStudent=(id=1, studentData={})=>{
     console.log(`The command to updated a student with id = ${id} and new data as parameter is : curl -i -X PUT ${BASE_URL}/students/${String(id)} -H "${ContentType}" -d '${JSON.stringify(studentData)}'\n`);
@@ -42,7 +42,7 @@ const updatedStudent=(id=1, studentData={})=>{
 /**
  * This function shows the command to update partially a student with the id and the partial data passed as parameter
  * @param {string} id - The id of the student that you want to do a partial update (default = "1")
- * @param {object} partialData - The partial data to be modified (default = {})
+ * @param {Object} partialData - The partial data to be modified (default = {})
  */
 const patchStudent=(id="1",partialData={})=>{
     console.log(`The command to updated the student with id = ${id} and the data partially as parameter is: curl -i -X PATCH ${BASE_URL}/students/${String(id)} -H "${ContentType}" -d '${JSON.stringify(partialData)}'\n`);
