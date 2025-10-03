@@ -1,0 +1,67 @@
+@baseUrl=http://localhost
+@port=4000
+@apiUrl={{baseUrl}}:{{port}}
+@ContentType=application/json
+
+### POST Esta petición sirve para crear a un estudiante nuevo.
+POST {{apiUrl}}/students HTTP/1.1
+Content-Type: {{ContentType}}
+
+{
+    "id": "8",
+    "name": "Antonio Gutierrez Palermo",
+    "email": "antonio.gutierrez@gmail.com",
+    "enrollmentDate": "2024-07-19",
+    "active": true,
+    "level": "beginner"
+}
+
+### GET ALL Esta petición sirve para leer todos los estudiantes que haya.
+
+GET {{apiUrl}}/students HTTP/1.1
+
+### GET BY ID Esta petición sirve para leer a un unico estudiante mediante su id.
+
+GET {{apiUrl}}/students/6 HTTP/1.1
+
+### GET students by active Esta petición sirve para filtrar y leer a los estudiantes que tienen la clave "active" con valor true .
+
+GET {{apiUrl}}/students?active=true HTTP/1.1
+
+### GET students by level Estos comandos sirven para filtrar y leer a los estudiantes dependiendo de su clave "level" (el primero es para los de nivel principiante).
+GET {{apiUrl}}/students?level=beginner HTTP/1.1
+
+### Este es para los que son intermedios
+
+GET {{apiUrl}}/students?level=intermediate HTTP/1.1
+
+### Este es para los que son avanzados
+
+GET {{apiUrl}}/students?level=advanced HTTP/1.1
+
+### UPDATE Esta petición sirve para modificar la información completa de un estudiante.
+
+PUT {{apiUrl}}/students/4 HTTP/1.1
+Content-Type: {{ContentType}}
+
+{
+    "id": "4",
+    "name": "Alberto Gimenez Sanchez",
+    "email": "alberto.gimenez@email.com",
+    "enrollmentDate": "2024-11-03",
+    "active": false,
+    "level": "advanced"
+}
+
+### PATCH Esta petición sirve para modificar parcialmente la información de un estudiante.
+
+PATCH {{apiUrl}}/students/9 HTTP/1.1
+Content-Type: {{ContentType}}
+
+{
+    "active":true
+}
+
+### DELETE Esta petición sirve para eliminar a un estudiante.
+
+DELETE {{apiUrl}}/students/1 HTTP/1.1

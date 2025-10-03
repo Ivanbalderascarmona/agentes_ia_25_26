@@ -29,9 +29,9 @@
 
 ## Parte 5: REST Client
 
-    -[] Archivo peticiones-crud.http
-    -[] Peticiones requeridas
-    -[] Pruebas
+    -[x] Archivo peticiones-crud.http
+    -[x] Peticiones requeridas
+    -[x] Verificar en VSCode que funciona cada una de las peticiones.
 
 ## Parte 6: Script de validación
 
