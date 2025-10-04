@@ -22,7 +22,6 @@
 
 ## Parte 4: Thunder Client
 
-    -[] Configuración
     -[x] Peticiones
     -[x] Capturas  de pantalla
     -[x] Documentación
@@ -41,6 +40,6 @@
 ## Parte 7: Comprobar que el checklist del progreso esta completo
 
     -[x] Archivo cheklist.md
-    -[] Comprobar que todo esta hecho correctamente.
+    -[x] Comprobar que todo esta hecho correctamente.
 
 
