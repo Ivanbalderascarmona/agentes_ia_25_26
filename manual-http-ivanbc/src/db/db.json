@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "id": 1,
+      "id": "1",
       "name": "María García López",
       "email": "maria.garcia@email.com",
       "enrollmentDate": "2024-09-15",
@@ -9,7 +9,7 @@
       "level": "intermediate"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Carlos Rodríguez Martín",
       "email": "carlos.rodriguez@email.com",
       "enrollmentDate": "2024-10-01",
@@ -17,7 +17,7 @@
       "level": "beginner"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Ana Fernández Silva",
       "email": "ana.fernandez@email.com",
       "enrollmentDate": "2024-08-20",
@@ -25,7 +25,7 @@
       "level": "advanced"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "David Sánchez Torres",
       "email": "david.sanchez@email.com",
       "enrollmentDate": "2024-09-10",
@@ -33,7 +33,7 @@
       "level": "intermediate"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Laura Martínez Ruiz",
       "email": "laura.martinez@email.com",
       "enrollmentDate": "2024-09-25",
@@ -41,7 +41,7 @@
       "level": "beginner"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Javier López Gómez",
       "email": "javier.lopez@email.com",
       "enrollmentDate": "2024-07-15",
@@ -49,7 +49,7 @@
       "level": "advanced"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Elena Díaz Moreno",
       "email": "elena.diaz@email.com",
       "enrollmentDate": "2024-09-05",

@@ -167,18 +167,10 @@
         - Texto entre llaves: Este es el cuerpo de la respuesta (datos del estudiante eliminado).
 
 7. Pruebas reales 
-   - Comando POST creación de un estudiante:
-        ![Captura del comando POST](./images/image1.png)
-   - Comando GET lectura de todos los estudiantes:
-        ![Captura del comando GET de todos los estudiantes](./images/image2.png)
-   - Comando GET lectura de un estudiante:
-        ![Captura del comando GET de un estudiante](./images/image3.png)
-   - Comando PUT modificaión completa de un estudiante:
-        ![Captura del comando PUT de la modificación de un estudiante](./images/image4.png)
-   - Comando PATCH modificación parcial de un estudiante:
-        ![Captura del comando PATCH de la modificación parcial de un estudiante](./images/image5.png)
-   - Comando DELETE eliminación de un alumno:
-        ![Captura del comando DELETE de la eliminación de un alumno](./images/image6.png)
+   
+    ![Captura del comando POST](./images/image1.png)
+    ![Captura del comando GET de todos los estudiantes](./images/image2.png)
+    ![Captura del comando GET de un estudiante](./images/image3.png)
 
 ## Operaciones CRUD con Thunder Client
 
@@ -208,6 +200,19 @@
    6. Esta operación realiza la petición DELETE que elimina a un alumno.
        ![Captura de la petición DELETE donde se elimina un alumno con Thunder Client](./images/thunderimage11.png)
        ![Captura del resto de la petición DELETE](./images/thunderimage12.png)
+
+## Operaciones con REST Client
+
+    1. La petición que se esta mostrando es la petición que tiene el botón de Send Request en azul:
+![Capturas peticiones CRUD REST Client](./images/restclientimage1.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage2.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage3.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage4.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage5.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage6.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage7.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage8.png)
+![Capturas peticiones CRUD REST Client](./images/restclientimage9.png)
 
 ## Script de validación
  ![Captura del script validate.sh](./images/validateimage.png)
