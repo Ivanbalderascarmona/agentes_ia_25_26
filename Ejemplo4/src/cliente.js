@@ -1,8 +1,10 @@
 // el fichero cliente lanzara peticiones a la API REST
 
-const  traerPostVinos = async () => {
+
+// petición GET a /posts
+const  traerPost = async () => {
     try {
-        const response= await fetch("http://192.168.70.145:4000/posts");
+        const response= await fetch("http://localhost:4000/posts");
         const data = await response.json();
         console.log(data);
     } catch (error) {
@@ -14,4 +16,9 @@ const  traerPostVinos = async () => {
 
 //async function traerPostVinos(){}
 
-traerPostVinos();
+// peticion post a /posts
+const postPost = async () => {
+    try {
+        const response = await fetch("http://localhost:4000/posts");
+    }
+}
